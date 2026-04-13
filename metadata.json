@@ -1,0 +1,7 @@
+{
+  "name": "Hala - DXB Voice Ambassador",
+  "description": "The official AI Voice Ambassador for Dubai International Airport (DXB), providing seamless, high-speed, and hospitable assistance to global travelers.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
