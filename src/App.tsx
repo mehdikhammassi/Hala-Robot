@@ -1,13 +1,18 @@
-// test
+// استراد المكتبات
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { GoogleGenAI, Modality } from "@google/genai";
-import { Mic, MicOff, Volume2, Plane, MapPin, Info, Globe, Loader2, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect, useRef, useCallback } from 'react'; // استراد مكتبة التفاعل مع المراجع
+import { GoogleGenAI, Modality } from "@google/genai"; // استراد مكتبة الذكاء الاصطناعي من جوجل
+import { Mic, MicOff, Volume2, Plane, MapPin, Info, Globe, Loader2, ChevronDown } from 'lucide-react'; // استراد لاستخدامها في واجهة المستخدم
 
-// Constants for audio processing
+import { motion, AnimatePresence } from 'motion/react'; // استراد مكتبة الانيمشن
+
+
+// ظبط اعدادات الصوت
 const SAMPLE_RATE = 16000;
 const OUTPUT_SAMPLE_RATE = 24000;
+
+
+// أوامر رسائل الترحيب بلغات مختلفة
 
 const GREETINGS = [
   { 
@@ -41,6 +46,8 @@ const GREETINGS = [
     lang: "Urdu" 
   }
 ];
+
+// ترجمة النصوص المستخدمة في واجهة المستخدم
 
 const TRANSLATIONS: Record<string, any> = {
   en: {
@@ -90,6 +97,8 @@ const TRANSLATIONS: Record<string, any> = {
   }
 };
 
+// المكونات الرئيسية للبرنامج لتأكد من تشغيل المايكروفون, والتأكد من أن النظام يرد بصورة صحيحة
+
 export default function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
@@ -131,6 +140,7 @@ export default function App() {
     };
   }, []);
 
+  // كيف يتصرف الروبوت بإستخدام الذكاء الاصطناعي
   const systemInstruction = `
     ROLE: You are "Hala," the AI Voice Ambassador for Dubai International Airport (DXB).
     TONE: Warm, professional, and helpful.
